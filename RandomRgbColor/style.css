@@ -1,0 +1,25 @@
+body{
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+#colorBox{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+#color-code{
+    font-size: 20px;
+}
+#copycode{
+    background-color: rgb(3, 104, 3);
+    color: #fff;
+    border: none;
+    padding: 10px 20px ;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#copycode:hover{
+    background-color: rgba(1,93,1,0.76);
+    color: #fff
+}
