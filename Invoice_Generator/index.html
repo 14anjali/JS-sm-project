@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="output.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+
+  <div class="w-full max-w-5xl bg-white shadow-xl rounded-2xl p-10 border border-gray-200">
+    <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">💼 Invoice Generator</h1>
+
+    <!-- Client Info -->
+    <section class="mb-10">
+      <h2 class="text-lg font-semibold mb-3 text-gray-700 border-b pb-2">Client Information</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <input id="clientName" type="text" placeholder="Client Name" 
+          class="w-full bg-gray-50 border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none">
+        <input id="clientAddress" type="text" placeholder="Client Address"
+          class="w-full bg-gray-50 border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none">
+        <input id="clientEmail" type="email" placeholder="Client Email"
+          class="w-full bg-gray-50 border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none">
+      </div>
+    </section>
+
+    <!-- Add Item -->
+    <section class="mb-10">
+      <h2 class="text-lg font-semibold mb-3 text-gray-700 border-b pb-2">Add Items</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <input type="text" placeholder="Item Description" 
+          class="item-desc bg-gray-50 border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none">
+        <input type="number" placeholder="Qty" 
+          class="item-qty bg-gray-50 border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none">
+        <input type="number" placeholder="Price" 
+          class="item-price bg-gray-50 border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none">
+        <button id="addItem" 
+          class="bg-indigo-600 hover:bg-indigo-700 transition text-white font-medium rounded-lg px-5 py-3">+ Add Item</button>
+      </div>
+    </section>
+
+    <!-- Invoice Preview -->
+    <section id="invoicePreview" class="bg-gray-50 rounded-xl border border-gray-200 p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800">🧾 Invoice Preview</h2>
+      <p id="previewName" class="text-gray-700 font-medium"></p>
+      <p id="previewAddress" class="text-gray-600"></p>
+      <p id="previewEmail" class="text-gray-600 mb-4"></p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-gray-700">
+          <thead>
+            <tr class="bg-gray-200 text-gray-800 text-sm">
+              <th class="p-3 text-left">Item</th>
+              <th class="p-3 text-center">Qty</th>
+              <th class="p-3 text-right">Price</th>
+              <th class="p-3 text-right">Total</th>
+            </tr>
+          </thead>
+          <tbody id="previewItems"></tbody>
+          <tfoot>
+            <tr class="font-semibold text-gray-800 border-t">
+              <td colspan="3" class="p-3 text-right">Grand Total</td>
+              <td class="p-3 text-right" id="grandTotal">₹0.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- Download Button -->
+    <div class="mt-8 text-center">
+      <button id="downloadBtn" 
+        class="bg-green-600 hover:bg-green-700 transition px-8 py-3 text-lg rounded-lg text-white font-medium">📥 Download PDF</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

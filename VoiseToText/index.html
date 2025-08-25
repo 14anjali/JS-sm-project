@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice to Text Converter</title>
+</head>
+<body>
+  <h2>Voice to Text Converter</h2>
+  <button id="btn">Speak now</button>
+  <p id="output"></p>
+
+  <script>
+    const btn = document.getElementById('btn');
+    const output = document.getElementById('output');
+
+    btn.addEventListener('click', () => {
+      const recognition = new webkitSpeechRecognition(); // lowercase w
+      recognition.lang = 'hi-IN';
+      recognition.start();
+
+      recognition.onresult = (event) => { // lowercase "onresult"
+        output.textContent = event.results[0][0].transcript;
+      };
+    });
+  </script>
+</body>
+</html>
